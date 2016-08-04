@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+<extension
+         point="org.eclipse.ui.editors">
+      <editor
+            name="%editorName"
+            icon="icons/full/obj16/vsl_file.gif"
+            extensions="vsl, vm"
+            contributorClass="org.vaulttec.velocity.ui.editor.VelocityEditorActionContributor"
+            class="org.vaulttec.velocity.ui.editor.VelocityEditor"
+            id="org.vaulttec.velocity.ui.editor.VelocityEditor">
+      </editor>
+   </extension> 
+   <extension
+          point="org.eclipse.ui.contexts">
+       <context
+             name="%category.name"
+             description="%category.description"
+             parentId="org.eclipse.jdt.ui.javaEditorScope"
+             id="org.vaulttec.velocity.ui.velocityEditorScope">
+       </context>
+   </extension>
+   <extension point="org.eclipse.ui.bindings">
+         <key
+            sequence="F3"
+            contextId="org.vaulttec.velocity.ui.velocityEditorScope"
+            commandId="org.vaulttec.velocity.ui.edit.goto.definition"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+            
+   </extension>         
+   <extension
+         point="org.eclipse.ui.commands">
+     
+      
+      <command
+            name="%command.gotoDefinition.name"
+            description="%command.gotoDefinition.description"
+            categoryId="org.eclipse.ui.category.navigate"
+            id="org.vaulttec.velocity.ui.edit.goto.definition">
+      </command>
+      
+     
+      
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.langtags.ep4velo.Ep4VeloPreferenceInitializer">
+      </initializer>
+   </extension>
+  
+  
+</plugin>
